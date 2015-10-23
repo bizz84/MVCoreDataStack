@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import MVCoreDataStack
 
 class ViewController: UIViewController {
 

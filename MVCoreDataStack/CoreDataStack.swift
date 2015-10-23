@@ -1,5 +1,5 @@
 //
-//  DataAccess.swift
+//  CoreDataStack.swift
 //  CoreDataThreading
 //
 //  Created by Andrea Bizzotto on 19/10/2015.
@@ -14,7 +14,7 @@ public class CoreDataStack {
     public let storeType: String
     public let modelName: String
     
-    init(storeType: String, modelName: String) {
+    public init(storeType: String, modelName: String) {
         self.storeType = storeType
         self.modelName = modelName
     }
@@ -70,16 +70,15 @@ public class CoreDataStack {
 
                 willSaveParent = true
                 parent.performBlock() {
-                    let elapsed = NSDate.measureTime() {
-                        do {
-                            try parent.save()
-                        }
-                        catch(let error) {
-                            completion(error: error as NSError)
-                            return
-                        }
+                    let start = NSDate()
+                    do {
+                        try parent.save()
                     }
-                    print("Saved on main queue in \(elapsed) sec")
+                    catch(let error) {
+                        completion(error: error as NSError)
+                        return
+                    }
+                    print("Saved on main queue in \(NSDate().timeIntervalSinceDate(start)) sec")
                     completion(error: nil)
                 }
             }
