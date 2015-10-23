@@ -13,6 +13,11 @@
 		655F2C501BDA11FE0057A026 /* MVCoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C4E1BDA11FE0057A026 /* MVCoreDataStack.xcdatamodeld */; };
 		655F2C521BDA11FE0057A026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C511BDA11FE0057A026 /* Assets.xcassets */; };
 		655F2C551BDA11FE0057A026 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C531BDA11FE0057A026 /* LaunchScreen.storyboard */; };
+		655F2C611BDA12CB0057A026 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
+		655F2C621BDA12CB0057A026 /* DataWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5D1BDA12CB0057A026 /* DataWriter.swift */; settings = {ASSET_TAGS = (); }; };
+		655F2C631BDA12CB0057A026 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5E1BDA12CB0057A026 /* Note.swift */; settings = {ASSET_TAGS = (); }; };
+		655F2C641BDA12CB0057A026 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5F1BDA12CB0057A026 /* Note+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		655F2C651BDA12CB0057A026 /* NSDate+TimeMeasuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C601BDA12CB0057A026 /* NSDate+TimeMeasuring.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		655F2C511BDA11FE0057A026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		655F2C541BDA11FE0057A026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		655F2C561BDA11FE0057A026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		655F2C5D1BDA12CB0057A026 /* DataWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataWriter.swift; sourceTree = "<group>"; };
+		655F2C5E1BDA12CB0057A026 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		655F2C5F1BDA12CB0057A026 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		655F2C601BDA12CB0057A026 /* NSDate+TimeMeasuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+TimeMeasuring.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,11 @@
 		655F2C461BDA11FE0057A026 /* MVCoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
+				655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */,
+				655F2C5D1BDA12CB0057A026 /* DataWriter.swift */,
+				655F2C5E1BDA12CB0057A026 /* Note.swift */,
+				655F2C5F1BDA12CB0057A026 /* Note+CoreDataProperties.swift */,
+				655F2C601BDA12CB0057A026 /* NSDate+TimeMeasuring.swift */,
 				655F2C471BDA11FE0057A026 /* AppDelegate.swift */,
 				655F2C491BDA11FE0057A026 /* ViewController.swift */,
 				655F2C4B1BDA11FE0057A026 /* Main.storyboard */,
@@ -138,8 +153,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				655F2C501BDA11FE0057A026 /* MVCoreDataStack.xcdatamodeld in Sources */,
+				655F2C651BDA12CB0057A026 /* NSDate+TimeMeasuring.swift in Sources */,
+				655F2C641BDA12CB0057A026 /* Note+CoreDataProperties.swift in Sources */,
 				655F2C4A1BDA11FE0057A026 /* ViewController.swift in Sources */,
+				655F2C621BDA12CB0057A026 /* DataWriter.swift in Sources */,
 				655F2C481BDA11FE0057A026 /* AppDelegate.swift in Sources */,
+				655F2C611BDA12CB0057A026 /* CoreDataStack.swift in Sources */,
+				655F2C631BDA12CB0057A026 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
