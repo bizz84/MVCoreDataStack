@@ -44,17 +44,16 @@ class DataWriter: NSObject {
 
             print("Write (block)...")
 
-            let elapsed = NSDate.measureTime() {
-                
-                self.insert(self.writeCount, moc: moc)
-
-                self.coreDataStack.saveContext(moc) { error in
-                    completeOnMainQueue(error, completion: completion)
-                    return
-                }
-            }
+            let start = NSDate()
             
-            print("Inserted \(self.writeCount) items in \(elapsed.format()) sec")
+            self.insert(self.writeCount, moc: moc)
+
+            self.coreDataStack.saveContext(moc) { error in
+                
+                print("Inserted \(self.writeCount) items in \(NSDate().timeIntervalSinceDate(start).format()) sec")
+
+                completeOnMainQueue(error, completion: completion)
+            }
         }
     }
     
@@ -97,15 +96,15 @@ class DataWriter: NSObject {
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
             do {
-                let elapsed = try NSDate.measureTime() {
+                let start = NSDate()
                 
-                    try moc.executeRequest(deleteRequest)
-                    self.coreDataStack.saveContext(moc) { error in
-                        completeOnMainQueue(error, completion: completion)
-                        return
-                    }
+                try moc.executeRequest(deleteRequest)
+                self.coreDataStack.saveContext(moc) { error in
+                    
+                    print("Deleted all records in \(NSDate().timeIntervalSinceDate(start).format()) sec")
+
+                    completeOnMainQueue(error, completion: completion)
                 }
-                print("Deleted all records in \(elapsed.format()) sec")
             }
             catch {
                 let nserror = error as NSError
@@ -126,21 +125,20 @@ class DataWriter: NSObject {
             let fetchRequest = NSFetchRequest(entityName: "Note")
 
             do {
-                let elapsed = try NSDate.measureTime() {
+                let start = NSDate()
 
-                    let notes = try moc.executeFetchRequest(fetchRequest) as! [Note]
+                let notes = try moc.executeFetchRequest(fetchRequest) as! [Note]
 
-                    for note in notes {
-                        moc.deleteObject(note)
-                    }
-                    
-                    self.coreDataStack.saveContext(moc) { error in
-                        completeOnMainQueue(error, completion: completion)
-                        return
-                    }
+                for note in notes {
+                    moc.deleteObject(note)
                 }
                 
-                print("Deleted all items in \(elapsed.format()) sec.")
+                self.coreDataStack.saveContext(moc) { error in
+
+                    print("Deleted all records in \(NSDate().timeIntervalSinceDate(start).format()) sec")
+
+                    completeOnMainQueue(error, completion: completion)
+                }
             }
             catch {
                 let nserror = error as NSError

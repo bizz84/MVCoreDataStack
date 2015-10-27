@@ -70,7 +70,6 @@ public class CoreDataStack {
 
                 willSaveParent = true
                 parent.performBlock() {
-                    let start = NSDate()
                     do {
                         try parent.save()
                     }
@@ -78,7 +77,6 @@ public class CoreDataStack {
                         completion(error: error as NSError)
                         return
                     }
-                    print("Saved on main queue in \(NSDate().timeIntervalSinceDate(start)) sec")
                     completion(error: nil)
                 }
             }

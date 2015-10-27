@@ -10,7 +10,6 @@
 		655F2C6E1BDA13BC0057A026 /* MVCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 655F2C6D1BDA13BC0057A026 /* MVCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		655F2C721BDA13BC0057A026 /* MVCoreDataStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655F2C6B1BDA13BB0057A026 /* MVCoreDataStack.framework */; };
 		655F2C731BDA13BC0057A026 /* MVCoreDataStack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 655F2C6B1BDA13BB0057A026 /* MVCoreDataStack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		655F2C851BDA14230057A026 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
 		655F2C981BDA16900057A026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C891BDA16900057A026 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		655F2C991BDA16900057A026 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C8A1BDA16900057A026 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		655F2C9A1BDA16900057A026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C8C1BDA16900057A026 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -22,7 +21,8 @@
 		655F2CA01BDA16900057A026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C941BDA16900057A026 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		655F2CA11BDA16900057A026 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C951BDA16900057A026 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		655F2CA21BDA16900057A026 /* MVCoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C961BDA16900057A026 /* MVCoreDataStack.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		655F2CA31BDA17AB0057A026 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
+		659613C81BDF6186000444A2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
+		65FCCB261BDF65ED00542542 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,7 +261,7 @@
 				655F2C9C1BDA16900057A026 /* DataWriter.swift in Sources */,
 				655F2CA01BDA16900057A026 /* ViewController.swift in Sources */,
 				655F2C9F1BDA16900057A026 /* NSDate+TimeMeasuring.swift in Sources */,
-				655F2CA31BDA17AB0057A026 /* CoreDataStack.swift in Sources */,
+				65FCCB261BDF65ED00542542 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				655F2C851BDA14230057A026 /* CoreDataStack.swift in Sources */,
+				659613C81BDF6186000444A2 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
