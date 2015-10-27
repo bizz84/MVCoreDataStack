@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         fetch()
     }
     
-    @IBAction func refresh() {
+    @IBAction func write() {
         dataWriter.write() { error in
             self.fetch()
         }

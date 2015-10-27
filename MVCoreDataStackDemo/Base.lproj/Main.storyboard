@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Core Data Stack-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MVCoreDataStack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MVCoreDataStackDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -43,15 +43,15 @@
                             <constraint firstAttribute="trailing" secondItem="Zxg-qX-6rU" secondAttribute="trailing" id="nOe-XO-RRI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZaO-Eu-FDz">
+                    <navigationItem key="navigationItem" title="Core Data Stack" id="ZaO-Eu-FDz">
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="Lc4-mp-bC1">
                             <connections>
                                 <action selector="clear" destination="BYZ-38-t0r" id="Vcl-3B-82h"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="0tl-Cq-iiC">
+                        <barButtonItem key="rightBarButtonItem" title="Write" id="0tl-Cq-iiC">
                             <connections>
-                                <action selector="refresh" destination="BYZ-38-t0r" id="Yvd-Uq-m3x"/>
+                                <action selector="write" destination="BYZ-38-t0r" id="rWw-lo-feK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
