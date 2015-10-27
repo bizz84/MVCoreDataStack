@@ -17,7 +17,6 @@
 		655F2C9C1BDA16900057A026 /* DataWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C901BDA16900057A026 /* DataWriter.swift */; settings = {ASSET_TAGS = (); }; };
 		655F2C9D1BDA16900057A026 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C911BDA16900057A026 /* Note+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		655F2C9E1BDA16900057A026 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C921BDA16900057A026 /* Note.swift */; settings = {ASSET_TAGS = (); }; };
-		655F2C9F1BDA16900057A026 /* NSDate+TimeMeasuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C931BDA16900057A026 /* NSDate+TimeMeasuring.swift */; settings = {ASSET_TAGS = (); }; };
 		655F2CA01BDA16900057A026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C941BDA16900057A026 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		655F2CA11BDA16900057A026 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C951BDA16900057A026 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		655F2CA21BDA16900057A026 /* MVCoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C961BDA16900057A026 /* MVCoreDataStack.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
@@ -62,7 +61,6 @@
 		655F2C901BDA16900057A026 /* DataWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataWriter.swift; sourceTree = "<group>"; };
 		655F2C911BDA16900057A026 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		655F2C921BDA16900057A026 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		655F2C931BDA16900057A026 /* NSDate+TimeMeasuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+TimeMeasuring.swift"; sourceTree = "<group>"; };
 		655F2C941BDA16900057A026 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		655F2C951BDA16900057A026 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		655F2C971BDA16900057A026 /* MVCoreDataStack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MVCoreDataStack.xcdatamodel; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				655F2C901BDA16900057A026 /* DataWriter.swift */,
 				655F2C911BDA16900057A026 /* Note+CoreDataProperties.swift */,
 				655F2C921BDA16900057A026 /* Note.swift */,
-				655F2C931BDA16900057A026 /* NSDate+TimeMeasuring.swift */,
 				655F2C941BDA16900057A026 /* ViewController.swift */,
 			);
 			path = Classes;
@@ -260,7 +257,6 @@
 				655F2C9D1BDA16900057A026 /* Note+CoreDataProperties.swift in Sources */,
 				655F2C9C1BDA16900057A026 /* DataWriter.swift in Sources */,
 				655F2CA01BDA16900057A026 /* ViewController.swift in Sources */,
-				655F2C9F1BDA16900057A026 /* NSDate+TimeMeasuring.swift in Sources */,
 				65FCCB261BDF65ED00542542 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
