@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     func setup() {
         let fetchRequest = NSFetchRequest(entityName: "Note")
         
-        fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "uid", ascending: true)]
+        fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "uid", ascending: false)]
         
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataStack.mainManagedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     }
