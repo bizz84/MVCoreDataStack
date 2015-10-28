@@ -13,7 +13,7 @@ Access to the main and private MOCs happens via the [```CoreDataStack```](https:
 The core data stack is built so that the main MOC runs on the main queue and writes directly to the persistence store coordinator.
 The private MOC runs on a private queue and has the main MOC as its parent, so that when changes are saved to the private MOC, the main MOC is automatically updated.
 
-This guarantees optimal performance and prevents the main thread from locking provided that write/delete/save operations are performed on the private MOC.
+This guarantees optimal performance and minimises the time the main thread is locked provided that write/delete/save operations are performed on the private MOC.
 
 When the SQLite store is used, saves to the private MOC are always followed by corresponding saves in the main MOC to ensure that the changes are persisted.
 This is not necessary when using an in memory store.
@@ -72,7 +72,7 @@ Alternatively, simply drag-and-drop the [```CoreDataStack.swift```](https://gith
 
 ## Performance
 
-### Test Setup
+#### Test Setup
 
 We have run some write and delete tests in various configurations. 
 
@@ -92,7 +92,7 @@ iOS 8.4.1   | Fetch + Delete Loop  | Fetch + Delete Loop
 
 The two tables below illustrate the timings we have observed when inserting or deleting different numbers of records. Performance has been measured by taking the average of 5 samples for each measurement.
 
-### Results 
+#### Results 
 
 **SQLite Performance**
 
@@ -108,7 +108,7 @@ Device                   | Write 500 | Delete 500 | Write 5000 | Delete 5000  | 
 iPhone 6 (iOS 9.1)       | 0.019 sec | 0.040 sec  | 0.140 sec  | 0.392 sec    | 1.318 sec   | 3.585 sec
 iPod Touch 5 (iOS 8.4.1) | 
 
-### Insights 
+#### Insights 
 
 From the comparisons between the iPhone 6 results we can observe that writes are approximately 3x faster when using an in-memory store compared to a SQLite store, but deletes are approximately **1000x slower**.
 
