@@ -18,7 +18,6 @@
 		655F2C9D1BDA16900057A026 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C911BDA16900057A026 /* Note+CoreDataProperties.swift */; };
 		655F2C9E1BDA16900057A026 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C921BDA16900057A026 /* Note.swift */; };
 		655F2CA01BDA16900057A026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C941BDA16900057A026 /* ViewController.swift */; };
-		655F2CA11BDA16900057A026 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C951BDA16900057A026 /* Info.plist */; };
 		655F2CA21BDA16900057A026 /* MVCoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C961BDA16900057A026 /* MVCoreDataStack.xcdatamodeld */; };
 		659613C81BDF6186000444A2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; };
 		65FCCB261BDF65ED00542542 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; };
@@ -195,7 +194,7 @@
 		655F2C3C1BDA11FE0057A026 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = musevisions;
 				TargetAttributes = {
 					655F2C431BDA11FE0057A026 = {
@@ -230,7 +229,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				655F2CA11BDA16900057A026 /* Info.plist in Resources */,
 				655F2C9A1BDA16900057A026 /* Main.storyboard in Resources */,
 				655F2C981BDA16900057A026 /* Assets.xcassets in Resources */,
 				655F2C991BDA16900057A026 /* LaunchScreen.storyboard in Resources */,
