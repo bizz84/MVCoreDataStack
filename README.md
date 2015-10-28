@@ -20,9 +20,9 @@ This is not necessary when using an in memory store.
 
 ## Usage
 
-The ```CoreDataStack``` class must be used in conjunction with the ```performBlock``` and ```performBlockAndWait``` when performing CoreData operations in the private MOC.
+The ```CoreDataStack``` class must be used in conjunction with the ```performBlock``` and ```performBlockAndWait``` methods when performing CoreData operations in the private MOC.
 
-TODO: UPDATE
+The code snipped below illustrates how to delete all objects for a given entity:
 
 ```swift
 // Initialisation
@@ -36,14 +36,15 @@ func deleteAllItems(coreDataStack: CoreDataStack, completion: (error: NSError?) 
 		                
 		do {
 			try moc.executeRequest(deleteRequest)
-			try coreDataStack.saveContext(privateMOC)
+			// Note the saveContext method is asynchronous as it runs on the main queue
+			// to push the changes to the persistent store when we use SQLite
+			coreDataStack.saveContext(moc) { error in
+				completeOnMainQueue(error, completion: completion)
+			}
 		}
 		catch {
-			let nserror = error as NSError
-			completeOnMainQueue(nserror, completion: completion)
-			return
+			completeOnMainQueue(error as NSError, completion: completion)
 		}
-		completeOnMainQueue(nil, completion: completion)
 	}
 }
 
@@ -52,7 +53,6 @@ func completeOnMainQueue(error: NSError?, completion: (error: NSError?) -> ()) {
         completion(error: error)
     }
 }
-
 ```
 
 ## Installation
