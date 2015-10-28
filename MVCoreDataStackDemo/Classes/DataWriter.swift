@@ -54,9 +54,14 @@ class DataWriter: NSObject {
     
     func deleteAll(completion: (error: NSError?) -> ()) {
     
-        let batchDelete = coreDataStack.storeType == NSSQLiteStoreType
-        if (batchDelete) {
-            deleteAllBatch(completion)
+        if #available(iOS 9.0, *) {
+            let batchDelete = coreDataStack.storeType == NSSQLiteStoreType
+            if (batchDelete) {
+                deleteAllBatch(completion)
+            }
+            else {
+                deleteAllLoop(completion)
+            }
         }
         else {
             deleteAllLoop(completion)
@@ -81,6 +86,7 @@ class DataWriter: NSObject {
     }
 
     
+    @available(iOS 9.0, *)
     private func deleteAllBatch(completion: (error: NSError?) -> ()) {
         
         let moc = getMOC()

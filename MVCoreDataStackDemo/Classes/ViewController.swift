@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var fetchedResultsController: NSFetchedResultsController!
     
     lazy var coreDataStack: CoreDataStack = {
-        return CoreDataStack(storeType: NSInMemoryStoreType, modelName: "MVCoreDataStack")
+        return CoreDataStack(storeType: NSSQLiteStoreType, modelName: "MVCoreDataStack")
     }()
     
     lazy var dataWriter: DataWriter = {
