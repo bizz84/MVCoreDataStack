@@ -10,18 +10,18 @@
 		655F2C6E1BDA13BC0057A026 /* MVCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 655F2C6D1BDA13BC0057A026 /* MVCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		655F2C721BDA13BC0057A026 /* MVCoreDataStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655F2C6B1BDA13BB0057A026 /* MVCoreDataStack.framework */; };
 		655F2C731BDA13BC0057A026 /* MVCoreDataStack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 655F2C6B1BDA13BB0057A026 /* MVCoreDataStack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		655F2C981BDA16900057A026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C891BDA16900057A026 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		655F2C991BDA16900057A026 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C8A1BDA16900057A026 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		655F2C9A1BDA16900057A026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C8C1BDA16900057A026 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		655F2C9B1BDA16900057A026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C8F1BDA16900057A026 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		655F2C9C1BDA16900057A026 /* DataWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C901BDA16900057A026 /* DataWriter.swift */; settings = {ASSET_TAGS = (); }; };
-		655F2C9D1BDA16900057A026 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C911BDA16900057A026 /* Note+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		655F2C9E1BDA16900057A026 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C921BDA16900057A026 /* Note.swift */; settings = {ASSET_TAGS = (); }; };
-		655F2CA01BDA16900057A026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C941BDA16900057A026 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		655F2CA11BDA16900057A026 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C951BDA16900057A026 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
-		655F2CA21BDA16900057A026 /* MVCoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C961BDA16900057A026 /* MVCoreDataStack.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		659613C81BDF6186000444A2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
-		65FCCB261BDF65ED00542542 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
+		655F2C981BDA16900057A026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C891BDA16900057A026 /* Assets.xcassets */; };
+		655F2C991BDA16900057A026 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C8A1BDA16900057A026 /* LaunchScreen.storyboard */; };
+		655F2C9A1BDA16900057A026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C8C1BDA16900057A026 /* Main.storyboard */; };
+		655F2C9B1BDA16900057A026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C8F1BDA16900057A026 /* AppDelegate.swift */; };
+		655F2C9C1BDA16900057A026 /* DataWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C901BDA16900057A026 /* DataWriter.swift */; };
+		655F2C9D1BDA16900057A026 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C911BDA16900057A026 /* Note+CoreDataProperties.swift */; };
+		655F2C9E1BDA16900057A026 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C921BDA16900057A026 /* Note.swift */; };
+		655F2CA01BDA16900057A026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C941BDA16900057A026 /* ViewController.swift */; };
+		655F2CA11BDA16900057A026 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 655F2C951BDA16900057A026 /* Info.plist */; };
+		655F2CA21BDA16900057A026 /* MVCoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C961BDA16900057A026 /* MVCoreDataStack.xcdatamodeld */; };
+		659613C81BDF6186000444A2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; };
+		65FCCB261BDF65ED00542542 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F2C5C1BDA12CB0057A026 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +384,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MVCoreDataStackDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -396,6 +397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MVCoreDataStackDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
