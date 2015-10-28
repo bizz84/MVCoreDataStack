@@ -76,7 +76,7 @@ class DataWriter: NSObject {
 
     private func insert(count: Int, moc: NSManagedObjectContext) {
         
-        for i in 0..<count {
+        for i in 1...count {
             
             let note = NSEntityDescription.insertNewObjectForEntityForName(Note.entityName, inManagedObjectContext: moc) as! Note
             
