@@ -78,7 +78,7 @@ class DataWriter: NSObject {
         
         for i in 0..<count {
             
-            let note = NSEntityDescription.insertNewObjectForEntityForName("Note", inManagedObjectContext: moc) as! Note
+            let note = NSEntityDescription.insertNewObjectForEntityForName(Note.entityName, inManagedObjectContext: moc) as! Note
             
             note.uid = i
             note.title = "Lorem ipsum dolor sit amet..."
@@ -92,7 +92,7 @@ class DataWriter: NSObject {
         let moc = getMOC()
         moc.performBlock() {
             
-            let fetchRequest = NSFetchRequest(entityName: "Note")
+            let fetchRequest = NSFetchRequest(entityName: Note.entityName)
             
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
@@ -118,7 +118,7 @@ class DataWriter: NSObject {
         let moc = getMOC()
         moc.performBlock() {
 
-            let fetchRequest = NSFetchRequest(entityName: "Note")
+            let fetchRequest = NSFetchRequest(entityName: Note.entityName)
 
             do {
                 let start = NSDate()
