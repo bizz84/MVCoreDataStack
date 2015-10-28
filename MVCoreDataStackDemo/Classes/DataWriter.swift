@@ -1,6 +1,6 @@
 //
 //  DataDownloader.swift
-//  CoreDataThreading
+//  MVCoreDataStack
 //
 //  Created by Andrea Bizzotto on 19/10/2015.
 //  Copyright © 2015 musevisions. All rights reserved.
@@ -36,12 +36,12 @@ class DataWriter: NSObject {
     // MARK: Public methods
     func write(writeCount: Int, completion: (error: NSError?) -> ()) {
         
-        print("Write...")
+        //print("Write...")
 
         let moc = getMOC()
         moc.performBlock() {
 
-            print("Write (block)...")
+            //print("Write (block)...")
 
             let start = NSDate()
             
@@ -115,12 +115,12 @@ class DataWriter: NSObject {
     
     private func deleteAllLoop(completion: (error: NSError?) -> ()) {
         
-        print("Delete all...")
+        //print("Delete all...")
 
         let moc = getMOC()
         moc.performBlock() {
 
-            print("Delete all (block)...")
+            //print("Delete all (block)...")
             let fetchRequest = NSFetchRequest(entityName: "Note")
 
             do {

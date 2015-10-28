@@ -1,6 +1,6 @@
 //
 //  Note+CoreDataProperties.swift
-//  CoreDataThreading
+//  MVCoreDataStack
 //
 //  Created by Andrea Bizzotto on 19/10/2015.
 //  Copyright © 2015 musevisions. All rights reserved.

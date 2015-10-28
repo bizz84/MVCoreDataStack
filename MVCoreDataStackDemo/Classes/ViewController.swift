@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  CoreDataThreading
+//  MVCoreDataStack
 //
 //  Created by Andrea Bizzotto on 19/10/2015.
 //  Copyright © 2015 musevisions. All rights reserved.
@@ -108,50 +108,50 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-extension ViewController: NSFetchedResultsControllerDelegate {
- 
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        
-        guard let indexPath = indexPath else {
-            return;
-        }
-        switch (type) {
-        case .Insert:
-            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            break
-
-        case .Delete:
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            break
-        
-        case .Update:
-            if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
-                self.configureCell(cell, indexPath: indexPath)
-            }
-            break
-            
-        case .Move:
-            if let newIndexPath = newIndexPath {
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-            }
-            break
-        }
-    }
-
-    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo,  atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-        
-    }
-    
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-
-        print("NSFetchedResultsController controllerWillChangeContent")
-//        self.tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-  
-        print("NSFetchedResultsController controllerDidChangeContent")
-//        self.tableView.endUpdates()
-    }
-}
+//extension ViewController: NSFetchedResultsControllerDelegate {
+// 
+//    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+//        
+//        guard let indexPath = indexPath else {
+//            return;
+//        }
+//        switch (type) {
+//        case .Insert:
+//            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//            break
+//
+//        case .Delete:
+//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//            break
+//        
+//        case .Update:
+//            if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
+//                self.configureCell(cell, indexPath: indexPath)
+//            }
+//            break
+//            
+//        case .Move:
+//            if let newIndexPath = newIndexPath {
+//                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+//            }
+//            break
+//        }
+//    }
+//
+//    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo,  atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+//        
+//    }
+//    
+//    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+//
+//        print("NSFetchedResultsController controllerWillChangeContent")
+////        self.tableView.beginUpdates()
+//    }
+//    
+//    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+//  
+//        print("NSFetchedResultsController controllerDidChangeContent")
+////        self.tableView.endUpdates()
+//    }
+//}
