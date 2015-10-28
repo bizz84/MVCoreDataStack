@@ -70,6 +70,23 @@ pod 'MVCoreDataStack'
 ```
 Alternatively, simply drag-and-drop the [```CoreDataStack.swift```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStack/CoreDataStack.swift) file in your project file and use it directly.
 
+## Performance
+
+Performance has been measured by taking the average of 5 samples for each measurement. Delete commands on SQLite use the new NSBatchDeleteRequest class introduced in iOS 9, and the old fetch-loop-deleteObject method for in memory stores and iOS 8.
+
+**SQLite Performance**
+
+Device                   | Write 500 | Write 5000 | Write 50000 | Delete 50000
+------------------------ | --------- | ---------- | ----------- | ----------
+iPhone 6 (iOS 9.1)       | 0.066 sec | 0.289 sec  | 3.044 sec   | 0.037 sec
+iPod Touch 5 (iOS 8.4.1) |
+
+**In Memory Store Performance**
+
+Device                   | Write 500 | Write 5000 | Write 50000 | Delete
+------------------------ | --------- | ---------- | ----------- | ----------
+iPhone 6 (iOS 9.1)       | 
+iPod Touch 5 (iOS 8.4.1) |
 
 ## References
 
