@@ -1,7 +1,10 @@
-#Core Data Parent-Child Stack
+#Core Data Parent-Child Stack for iOS 8 and 9
 
-This sample project illustrates how to set up a CoreData stack to use the parent-child model with two managed object contexts (MOCs) as described [here](
-http://developmentnow.com/2015/04/28/experimenting-with-the-parent-child-concurrency-pattern-to-optimize-coredata-apps/).
+This sample project shows how to set up a CoreData stack to use two managed object contexts (MOCs) in a parent-child configuration. This is a setup that can be effectively used to perform long-running CoreData operations on a background queue, while reading the data on the main queue and keeping the UI responsive. 
+
+Additionally, usage and performance of the new iOS 9 NSBatchDeleteRequest APIs is discussed here.
+
+## Overview
 
 A simple producer-consumer demo application is included:
 
@@ -13,10 +16,27 @@ Access to the main and private MOCs happens via the [```CoreDataStack```](https:
 The core data stack is built so that the main MOC runs on the main queue and writes directly to the persistence store coordinator.
 The private MOC runs on a private queue and has the main MOC as its parent, so that when changes are saved to the private MOC, the main MOC is automatically updated.
 
-This guarantees optimal performance and minimises the time the main thread is locked provided that write/delete/save operations are performed on the private MOC.
+By performing write/delete/save operations on the private MOC, we get optimal performance and keep the UI responsive as most of the CoreData work is performed on the private queue.
 
-When the SQLite store is used, saves to the private MOC are always followed by corresponding saves in the main MOC to ensure that the changes are persisted.
-This is not necessary when using an in memory store.
+When the SQLite store is used, saves to the private MOC are also performed on the main MOC to ensure that the changes are persisted. This is not necessary when using an in memory store.
+
+*For more information about different CoreData concurrency patterns and when they should be used, [read this](
+http://developmentnow.com/2015/04/28/experimenting-with-the-parent-child-concurrency-pattern-to-optimize-coredata-apps/) or check the [References section](#references) below.*
+
+## Installation
+
+To integrate MVCoreDataStack in your own project, you can include it in your podfile:
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'MVCoreDataStack'
+```
+
+Alternatively, simply drag-and-drop the [```CoreDataStack.swift```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStack/CoreDataStack.swift) file in Xcode and use it directly.
 
 ## Usage
 
@@ -28,6 +48,7 @@ The code snipped below illustrates how to delete all objects for a given entity:
 // Initialisation
 let coreDataStack = return CoreDataStack(storeType: NSSQLiteStoreType, modelName: "MyXcdataModel")
 
+@available(iOS 9.0, *)
 func deleteAllItems(coreDataStack: CoreDataStack, completion: (error: NSError?) -> ()) {
 	let privateMOC = coreDataStack.privateManagedObjectContext
 	privateMOC.performBlock() {
@@ -55,33 +76,20 @@ func completeOnMainQueue(error: NSError?, completion: (error: NSError?) -> ()) {
 }
 ```
 
-## Installation
-
-You can use CocoaPods to import MVCoreDataStack in your podfile:
-
-```
-source 'https://github.com/CocoaPods/Specs.git'
-
-platform :ios, '8.0'
-inhibit_all_warnings!
-use_frameworks!
-
-pod 'MVCoreDataStack'
-```
-Alternatively, simply drag-and-drop the [```CoreDataStack.swift```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStack/CoreDataStack.swift) file in your project file and use it directly.
+For more example code on how to write CoreData operations using ```CoreDataStack```, see the [```DataWriter```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStackDemo/Classes/DataWriter.swift) file.
 
 ## Performance
 
 #### Test Setup
 
-We have run some write and delete tests in various configurations. 
+We have run some write and delete tests to benchmark the performance of CoreData in various configurations. 
 
 * All tests are based on a CoreData model with one single entity with two attributes:
 
- Key name | Type
- -------- | ------
- uid      | Int32
- title    | String
+ Attribute | Type
+ --------- | ------
+ uid       | Int32
+ title     | String
 
 * We use the newly introduced NSBatchDeleteRequest on iOS 9 when the core data stack is configured to use SQLite, and fallback to the old fetch + delete loop with in-memory stores or when running iOS 8. The table below summarises this configuration:
 
@@ -114,11 +122,13 @@ From the comparisons between the iPhone 6 results we can observe that writes are
 
 This shows that CoreData is very inefficient in deleting data when using in-memory stores, and very fast when deleting from SQLite stores with the new NSBatchDeleteRequest. Hopefully Apple will make NSBatchDeleteRequest available for in-memory stores as well.
 
+<a name="references"></a>
 ## References
 
 * [Apple Core Data Performance](https://developer.apple.com/library/prerelease/watchos/documentation/Cocoa/Conceptual/CoreData/Performance.html)
 * [Apple Core Data Concurrency](https://developer.apple.com/library/prerelease/watchos/documentation/Cocoa/Conceptual/CoreData/Concurrency.html#//apple_ref/doc/uid/TP40001075-CH24-SW1)
 * [Experimenting with the parent-child concurrency pattern to optimize CoreData apps](http://developmentnow.com/2015/04/28/experimenting-with-the-parent-child-concurrency-pattern-to-optimize-coredata-apps/)
+* [Marcus Zarra: My Core Data Stack](http://martiancraft.com/blog/2015/03/core-data-stack/)
 * [NSManagedObjectContext’s parentContext](http://benedictcohen.co.uk/blog/archives/308)
 * [Getting Sexy with Core Data](http://blog.chadwilken.com/core-data-concurrency/)
 
