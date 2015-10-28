@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var fetchedResultsController: NSFetchedResultsController!
     
     lazy var coreDataStack: CoreDataStack = {
-        return CoreDataStack(storeType: NSSQLiteStoreType, modelName: "MVCoreDataStack")
+        return CoreDataStack(storeType: NSInMemoryStoreType, modelName: "MVCoreDataStack")
     }()
     
     lazy var dataWriter: DataWriter = {
@@ -61,8 +61,6 @@ class ViewController: UIViewController {
         fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "uid", ascending: true)]
         
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataStack.mainManagedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        //self.fetchedResultsController.delegate = self
     }
     
     func fetch() {
@@ -106,52 +104,3 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
-
-
-//extension ViewController: NSFetchedResultsControllerDelegate {
-// 
-//    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-//        
-//        guard let indexPath = indexPath else {
-//            return;
-//        }
-//        switch (type) {
-//        case .Insert:
-//            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//            break
-//
-//        case .Delete:
-//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//            break
-//        
-//        case .Update:
-//            if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
-//                self.configureCell(cell, indexPath: indexPath)
-//            }
-//            break
-//            
-//        case .Move:
-//            if let newIndexPath = newIndexPath {
-//                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-//            }
-//            break
-//        }
-//    }
-//
-//    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo,  atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-//        
-//    }
-//    
-//    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-//
-//        print("NSFetchedResultsController controllerWillChangeContent")
-////        self.tableView.beginUpdates()
-//    }
-//    
-//    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-//  
-//        print("NSFetchedResultsController controllerDidChangeContent")
-////        self.tableView.endUpdates()
-//    }
-//}
