@@ -36,12 +36,8 @@ class DataWriter: NSObject {
     // MARK: Public methods
     func write(writeCount: Int, completion: (error: NSError?) -> ()) {
         
-        //print("Write...")
-
         let moc = getMOC()
         moc.performBlock() {
-
-            //print("Write (block)...")
 
             let start = NSDate()
             
@@ -106,21 +102,16 @@ class DataWriter: NSObject {
                 }
             }
             catch {
-                let nserror = error as NSError
-                completeOnMainQueue(nserror, completion: completion)
-                return
+                completeOnMainQueue(error as NSError, completion: completion)
             }
         }
     }
     
     private func deleteAllLoop(completion: (error: NSError?) -> ()) {
         
-        //print("Delete all...")
-
         let moc = getMOC()
         moc.performBlock() {
 
-            //print("Delete all (block)...")
             let fetchRequest = NSFetchRequest(entityName: "Note")
 
             do {
