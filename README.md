@@ -5,13 +5,13 @@ http://developmentnow.com/2015/04/28/experimenting-with-the-parent-child-concurr
 
 A simple producer-consumer demo application is included:
 
-* Consumer: ```ViewController``` class showing a table view linked to the main MOC via ```NSFetchedResultsController```
-* Producer: ```DataWriter``` class used to write and delete records with a private MOC.
+* Consumer: [```ViewController```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStackDemo/Classes/ViewController.swift) class showing a table view linked to the main MOC via ```NSFetchedResultsController```
+* Producer: [```DataWriter```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStackDemo/Classes/DataWriter.swift) class used to write and delete records with a private MOC.
 
-Access to the main and private MOCs happens via the ```CoreDataStack``` class, which can be configured to use either an in memory or a SQLite backing store.
+Access to the main and private MOCs happens via the [```CoreDataStack```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStack/CoreDataStack.swift) class, which can be configured to use either an in memory or a SQLite backing store.
 
 The core data stack is built so that the main MOC runs on the main queue and writes directly to the persistence store coordinator.
-The private MOC runs on a private queue and has the main MOC as its parent. This ensures that when changes are saved to the background MOC, the main MOC is automatically updated.
+The private MOC runs on a private queue and has the main MOC as its parent, so that when changes are saved to the private MOC, the main MOC is automatically updated.
 
 This guarantees optimal performance and prevents the main thread from locking provided that write/delete/save operations are performed on the private MOC.
 
@@ -21,6 +21,8 @@ This is not necessary when using an in memory store.
 ## Usage
 
 The ```CoreDataStack``` class must be used in conjunction with the ```performBlock``` and ```performBlockAndWait``` when performing CoreData operations in the private MOC.
+
+TODO: UPDATE
 
 ```swift
 // Initialisation
@@ -53,10 +55,27 @@ func completeOnMainQueue(error: NSError?, completion: (error: NSError?) -> ()) {
 
 ```
 
+## Installation
+
+You can use CocoaPods to import MVCoreDataStack in your podfile:
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+inhibit_all_warnings!
+use_frameworks!
+
+pod 'MVCoreDataStack'
+```
+Alternatively, simply drag-and-drop the [```CoreDataStack.swift```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStack/CoreDataStack.swift) file in your project file and use it directly.
+
+
 ## References
 
 * [Apple Core Data Performance](https://developer.apple.com/library/prerelease/watchos/documentation/Cocoa/Conceptual/CoreData/Performance.html)
 * [Apple Core Data Concurrency](https://developer.apple.com/library/prerelease/watchos/documentation/Cocoa/Conceptual/CoreData/Concurrency.html#//apple_ref/doc/uid/TP40001075-CH24-SW1)
+* [Experimenting with the parent-child concurrency pattern to optimize CoreData apps](http://developmentnow.com/2015/04/28/experimenting-with-the-parent-child-concurrency-pattern-to-optimize-coredata-apps/)
 * [NSManagedObjectContext’s parentContext](http://benedictcohen.co.uk/blog/archives/308)
 * [Getting Sexy with Core Data](http://blog.chadwilken.com/core-data-concurrency/)
 
