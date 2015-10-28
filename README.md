@@ -72,21 +72,47 @@ Alternatively, simply drag-and-drop the [```CoreDataStack.swift```](https://gith
 
 ## Performance
 
-Performance has been measured by taking the average of 5 samples for each measurement. Delete commands on SQLite use the new NSBatchDeleteRequest class introduced in iOS 9, and the old fetch-loop-deleteObject method for in memory stores and iOS 8.
+### Test Setup
+
+We have run some write and delete tests in various configurations. 
+
+* All tests are based on a CoreData model with one single entity with two attributes:
+
+ Key name | Type
+ -------- | ------
+ uid      | Int32
+ title    | String
+
+* We use the newly introduced NSBatchDeleteRequest on iOS 9 when the core data stack is configured to use SQLite, and fallback to the old fetch + delete loop with in-memory stores or when running iOS 8. The table below summarises this configuration:
+
+            | SQLite               | In Memory
+----------- | -------------------- | --------------------
+iOS 9.1     | NSBatchDeleteRequest | Fetch + Delete Loop
+iOS 8.4.1   | Fetch + Delete Loop  | Fetch + Delete Loop
+
+The two tables below illustrate the timings we have observed when inserting or deleting different numbers of records. Performance has been measured by taking the average of 5 samples for each measurement.
+
+### Results 
 
 **SQLite Performance**
 
-Device                   | Write 500 | Write 5000 | Write 50000 | Delete 50000
------------------------- | --------- | ---------- | ----------- | ----------
-iPhone 6 (iOS 9.1)       | 0.066 sec | 0.289 sec  | 3.044 sec   | 0.037 sec
-iPod Touch 5 (iOS 8.4.1) |
+Device                   | Write 500 | Delete 500 | Write 5000 | Delete 5000  | Write 50000 | Delete 50000 
+------------------------ | --------- | ---------- | ---------- | ------------ | ----------- | ------------ 
+iPhone 6 (iOS 9.1)       | 0.057 sec | 0.017 sec  | 0.350 sec  | 0.009 sec    | 3.086 sec   | 0.034 sec
+
 
 **In Memory Store Performance**
 
-Device                   | Write 500 | Write 5000 | Write 50000 | Delete
------------------------- | --------- | ---------- | ----------- | ----------
-iPhone 6 (iOS 9.1)       | 
-iPod Touch 5 (iOS 8.4.1) |
+Device                   | Write 500 | Delete 500 | Write 5000 | Delete 5000  | Write 50000 | Delete 50000 
+------------------------ | --------- | ---------- | ---------- | ------------ | ----------- | ------------ 
+iPhone 6 (iOS 9.1)       | 0.019 sec | 0.040 sec  | 0.140 sec  | 0.392 sec    | 1.318 sec   | 3.585 sec
+iPod Touch 5 (iOS 8.4.1) | 
+
+### Insights 
+
+From the comparisons between the iPhone 6 results we can observe that writes are approximately 3x faster when using an in-memory store compared to a SQLite store, but deletes are approximately **1000x slower**.
+
+This shows that CoreData is very inefficient in deleting data when using in-memory stores, and very fast when deleting from SQLite stores with the new NSBatchDeleteRequest. Hopefully Apple will make NSBatchDeleteRequest available for in-memory stores as well.
 
 ## References
 
