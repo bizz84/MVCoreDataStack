@@ -26,7 +26,6 @@ func completeOnMainQueue(error: NSError?, completion: (error: NSError?) -> ()) {
 
 class DataWriter: NSObject {
 
-    private let writeCount = 50000
     let coreDataStack: CoreDataStack
 
     init(coreDataStack: CoreDataStack) {
@@ -35,7 +34,7 @@ class DataWriter: NSObject {
     }
 
     // MARK: Public methods
-    func write(completion: (error: NSError?) -> ()) {
+    func write(writeCount: Int, completion: (error: NSError?) -> ()) {
         
         print("Write...")
 
@@ -46,11 +45,11 @@ class DataWriter: NSObject {
 
             let start = NSDate()
             
-            self.insert(self.writeCount, moc: moc)
+            self.insert(writeCount, moc: moc)
 
             self.coreDataStack.saveContext(moc) { error in
                 
-                print("Inserted \(self.writeCount) items in \(NSDate().timeIntervalSinceDate(start).format()) sec")
+                print("Inserted \(writeCount) items in \(NSDate().timeIntervalSinceDate(start).format()) sec")
 
                 completeOnMainQueue(error, completion: completion)
             }

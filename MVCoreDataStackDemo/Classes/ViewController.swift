@@ -13,6 +13,7 @@ import MVCoreDataStack
 class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var segmentedControl: UISegmentedControl!
     
     var fetchedResultsController: NSFetchedResultsController!
     
@@ -24,6 +25,16 @@ class ViewController: UIViewController {
         return DataWriter(coreDataStack: self.coreDataStack)
     }()
     
+    var itemsToInsert: Int {
+        
+        switch segmentedControl.selectedSegmentIndex {
+            case 0: return 500
+            case 1: return 5000
+            case 2: return 50000
+            default: return 0
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -32,7 +43,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func write() {
-        dataWriter.write() { error in
+        dataWriter.write(self.itemsToInsert) { error in
             self.fetch()
         }
     }
@@ -42,6 +53,7 @@ class ViewController: UIViewController {
             self.fetch()
         }
     }
+    
 
     func setup() {
         let fetchRequest = NSFetchRequest(entityName: "Note")

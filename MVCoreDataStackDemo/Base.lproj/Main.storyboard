@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E11f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vyv-EQ-KXE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vyv-EQ-KXE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--Core Data Stack-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MVCoreDataStackDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,12 +43,22 @@
                             <constraint firstAttribute="trailing" secondItem="Zxg-qX-6rU" secondAttribute="trailing" id="nOe-XO-RRI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Core Data Stack" id="ZaO-Eu-FDz">
+                    <navigationItem key="navigationItem" id="ZaO-Eu-FDz">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="Lc4-mp-bC1">
                             <connections>
                                 <action selector="clear" destination="BYZ-38-t0r" id="Vcl-3B-82h"/>
                             </connections>
                         </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="DPU-aE-lfC">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="500"/>
+                                <segment title="5000"/>
+                                <segment title="50000"/>
+                            </segments>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="Write" id="0tl-Cq-iiC">
                             <connections>
                                 <action selector="write" destination="BYZ-38-t0r" id="rWw-lo-feK"/>
@@ -56,6 +66,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentedControl" destination="DPU-aE-lfC" id="wH9-kJ-khI"/>
                         <outlet property="tableView" destination="Zxg-qX-6rU" id="VpW-UN-dgL"/>
                     </connections>
                 </viewController>
