@@ -107,7 +107,7 @@ The two tables below illustrate the timings we have observed when inserting or d
 Device                   | Write 500 | Delete 500 | Write 5000 | Delete 5000  | Write 50000 | Delete 50000 
 ------------------------ | --------- | ---------- | ---------- | ------------ | ----------- | ------------ 
 iPhone 6 (iOS 9.1)       | 0.057 sec | 0.017 sec  | 0.350 sec  | 0.009 sec    | 3.086 sec   | 0.034 sec
-iPod Touch 5 (iOS 8.4.1) | 0.152 sec | 0.222 sec  | 1.439 sec  | 2.080 sec    | 16.160 sec  | 25.816 sec
+iPod Touch 5 (iOS 8.4.1) | 0.151 sec | 0.224 sec  | 1.439 sec  | 2.080 sec    | 16.160 sec  | 25.816 sec
 
 
 **In Memory Store Performance**
@@ -115,13 +115,18 @@ iPod Touch 5 (iOS 8.4.1) | 0.152 sec | 0.222 sec  | 1.439 sec  | 2.080 sec    | 
 Device                   | Write 500 | Delete 500 | Write 5000 | Delete 5000  | Write 50000 | Delete 50000 
 ------------------------ | --------- | ---------- | ---------- | ------------ | ----------- | ------------ 
 iPhone 6 (iOS 9.1)       | 0.019 sec | 0.040 sec  | 0.140 sec  | 0.392 sec    | 1.318 sec   | 3.585 sec
-iPod Touch 5 (iOS 8.4.1) | 
+iPod Touch 5 (iOS 8.4.1) | 0.071 sec | 0.121 sec  | 0.691 sec  | 1.169 sec    | 6.808 sec   | 25.272 sec
 
 #### Insights 
 
-From the comparisons between the iPhone 6 results we can observe that writes are approximately 3x faster when using an in-memory store compared to a SQLite store, but deletes are approximately **1000x slower**.
+From the benchmarks above we can draw some important insights on performance:
 
-This shows that CoreData is very inefficient in deleting data when using in-memory stores, and very fast when deleting from SQLite stores with the new NSBatchDeleteRequest. Hopefully Apple will make NSBatchDeleteRequest available for in-memory stores as well.
+* Write operatons are typically 2x to 3x faster when using an in-memory store compared to a SQLite store
+* Delete operations using the NSBatchDeleteRequest are approximately **1000x faster** than the Fetch + Delete loop approach. 
+
+To sum up, CoreData is very inefficient in deleting data when using in-memory stores, and very fast when deleting from SQLite stores with the new NSBatchDeleteRequest. Hopefully Apple will make NSBatchDeleteRequest available for in-memory stores as well.
+
+As for the difference in benchmarks between different devices, the iPhone 6 is approximately 3x faster than the iPod Touch 5 on all tests, meaning that it's possible to estimate performance on a slow device from a baseline measured on a fast device.
 
 <a name="references"></a>
 ## References

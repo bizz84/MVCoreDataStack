@@ -75,16 +75,16 @@ Deleted all records in 3.3838 sec
 ## iPod Touch 5 tests - iOS 8.4.1 - SQLite
 
 ```
-Inserted 500 items in 0.1674 sec
-Deleted all records in 0.2273 sec
-Inserted 500 items in 0.1496 sec
-Deleted all records in 0.2185 sec
-Inserted 500 items in 0.1449 sec
-Deleted all records in 0.2222 sec
-Inserted 500 items in 0.1464 sec
-Deleted all records in 0.2202 sec
-Inserted 500 items in 0.1502 sec
-Deleted all records in 0.2199 sec
+Inserted 500 items in 0.1519 sec
+Deleted all records in 0.2230 sec
+Inserted 500 items in 0.1495 sec
+Deleted all records in 0.2233 sec
+Inserted 500 items in 0.1541 sec
+Deleted all records in 0.2254 sec
+Inserted 500 items in 0.1558 sec
+Deleted all records in 0.2214 sec
+Inserted 500 items in 0.1457 sec
+Deleted all records in 0.2261 sec
 
 Inserted 5000 items in 1.4556 sec
 Deleted all records in 2.0707 sec
@@ -110,3 +110,38 @@ Deleted all records in 26.0189 sec
 ```
 
 ## iPod Touch 5 tests - iOS 8.4.1 - in memory store
+
+```
+Inserted 500 items in 0.0704 sec
+Deleted all records in 0.1294 sec
+Inserted 500 items in 0.0698 sec
+Deleted all records in 0.1188 sec
+Inserted 500 items in 0.0721 sec
+Deleted all records in 0.1179 sec
+Inserted 500 items in 0.0711 sec
+Deleted all records in 0.1188 sec
+Inserted 500 items in 0.0710 sec
+Deleted all records in 0.1185 sec
+
+Inserted 5000 items in 0.6907 sec
+Deleted all records in 1.1591 sec
+Inserted 5000 items in 0.6926 sec
+Deleted all records in 1.1624 sec
+Inserted 5000 items in 0.6866 sec
+Deleted all records in 1.1863 sec
+Inserted 5000 items in 0.6882 sec
+Deleted all records in 1.1660 sec
+Inserted 5000 items in 0.6946 sec
+Deleted all records in 1.1716 sec
+
+Inserted 50000 items in 6.8599 sec
+Deleted all records in 22.1012 sec
+Inserted 50000 items in 6.7862 sec
+Deleted all records in 30.7028 sec
+Inserted 50000 items in 6.7736 sec
+Deleted all records in 21.7182 sec
+Inserted 50000 items in 6.8406 sec
+Deleted all records in 28.2242 sec
+Inserted 50000 items in 6.7798 sec
+Deleted all records in 23.6118 sec
+```
