@@ -107,6 +107,7 @@ The two tables below illustrate the timings we have observed when inserting or d
 Device                   | Write 500 | Delete 500 | Write 5000 | Delete 5000  | Write 50000 | Delete 50000 
 ------------------------ | --------- | ---------- | ---------- | ------------ | ----------- | ------------ 
 iPhone 6 (iOS 9.1)       | 0.057 sec | 0.017 sec  | 0.350 sec  | 0.009 sec    | 3.086 sec   | 0.034 sec
+iPod Touch 5 (iOS 8.4.1) | 0.152 sec | 0.222 sec  | 1.439 sec  | 2.080 sec    | 16.160 sec  | 25.816 sec
 
 
 **In Memory Store Performance**

@@ -1,4 +1,4 @@
-## iPhone 6 tests - iOS 9.1 -  SQLite
+## iPhone 6 tests - iOS 9.1 - SQLite
 
 ```
 Inserted 500 items in 0.0442 sec
@@ -71,3 +71,42 @@ Deleted all records in 3.9614 sec
 Inserted 50000 items in 1.3316 sec
 Deleted all records in 3.3838 sec
 ```
+
+## iPod Touch 5 tests - iOS 8.4.1 - SQLite
+
+```
+Inserted 500 items in 0.1674 sec
+Deleted all records in 0.2273 sec
+Inserted 500 items in 0.1496 sec
+Deleted all records in 0.2185 sec
+Inserted 500 items in 0.1449 sec
+Deleted all records in 0.2222 sec
+Inserted 500 items in 0.1464 sec
+Deleted all records in 0.2202 sec
+Inserted 500 items in 0.1502 sec
+Deleted all records in 0.2199 sec
+
+Inserted 5000 items in 1.4556 sec
+Deleted all records in 2.0707 sec
+Inserted 5000 items in 1.4340 sec
+Deleted all records in 2.0750 sec
+Inserted 5000 items in 1.4175 sec
+Deleted all records in 2.0798 sec
+Inserted 5000 items in 1.4448 sec
+Deleted all records in 2.0897 sec
+Inserted 5000 items in 1.4409 sec
+Deleted all records in 2.0836 sec
+
+Inserted 50000 items in 21.8500 sec
+Deleted all records in 26.2300 sec
+Inserted 50000 items in 14.5263 sec
+Deleted all records in 25.1672 sec
+Inserted 50000 items in 14.7489 sec
+Deleted all records in 25.4011 sec
+Inserted 50000 items in 15.0667 sec
+Deleted all records in 26.2586 sec
+Inserted 50000 items in 14.6057 sec
+Deleted all records in 26.0189 sec
+```
+
+## iPod Touch 5 tests - iOS 8.4.1 - in memory store
