@@ -63,12 +63,12 @@ public class CoreDataStack {
         
         // When using SQLite store and the managed object context's parent is the main MOC,
         // save the parent object context to persist to the persistence store coordinator
-        var willSaveParent = false
+        var parentNeedsSave = false
         if self.storeType == NSSQLiteStoreType {
             if let parent = managedObjectContext.parentContext
                 where parent == self.mainManagedObjectContext && parent.hasChanges {
 
-                willSaveParent = true
+                parentNeedsSave = true
                 parent.performBlock() {
                     do {
                         try parent.save()
@@ -81,7 +81,7 @@ public class CoreDataStack {
                 }
             }
         }
-        if willSaveParent == false {
+        if parentNeedsSave == false {
             completion(error: nil)
         }
     }
