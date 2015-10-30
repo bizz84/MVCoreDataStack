@@ -1,8 +1,6 @@
 #Core Data Parent-Child Stack for iOS 8 and 9
 
-This sample project shows how to set up a CoreData stack to use two managed object contexts (MOCs) in a parent-child configuration. This is a setup that can be effectively used to perform long-running CoreData operations on a background queue, while reading the data on the main queue and keeping the UI responsive. 
-
-Additionally, usage and performance of the new iOS 9 NSBatchDeleteRequest APIs is discussed here.
+This sample project shows how to set up a CoreData stack to use two managed object contexts (MOCs) in a parent-child configuration. This is a setup that can be used to perform long-running CoreData operations on a background queue, while reading the data on the main queue and keeping the UI responsive. 
 
 ## Overview
 
@@ -42,7 +40,7 @@ Alternatively, simply drag-and-drop the [```CoreDataStack.swift```](https://gith
 
 The ```CoreDataStack``` class must be used in conjunction with the ```performBlock``` and ```performBlockAndWait``` methods when performing CoreData operations in the private MOC.
 
-The code snipped below illustrates how to delete all objects for a given entity:
+The code snipped below illustrates how to delete all objects for a given entity by using the new NSBatchDeleteRequest API introduced in iOS 9. See the [Performance section](#performance) below for when NSBatchDeleteRequest can be used.
 
 ```swift
 // Initialisation
@@ -78,6 +76,7 @@ func completeOnMainQueue(error: NSError?, completion: (error: NSError?) -> ()) {
 
 For more example code on how to write CoreData operations using ```CoreDataStack```, see the [```DataWriter```](https://github.com/bizz84/MVCoreDataStack/blob/master/MVCoreDataStackDemo/Classes/DataWriter.swift) file.
 
+<a name="performance"></a>
 ## Performance
 
 #### Test Setup
